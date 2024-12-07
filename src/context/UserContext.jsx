@@ -74,6 +74,103 @@ function UserContext({children}) {
         return translations[targetLang] || text;
     }
 
+    async function takeCommand(command) {
+        if (command.includes("tumhara naam kya hai") || 
+        command.includes("what is your name") || 
+        command.includes("apka naam kya hai")) {
+        
+        let lang = "en";
+        if (command.includes("kya hai")) lang = "hi";
+        if (command.includes("نام")) lang = "ur";
+
+        let response = await translateText("My name is  AI.", lang);
+        speak(response);
+        setPrompt(response);
+        } else if (command.includes("open") && command.includes("youtube")) {
+            window.open("https://www.youtube.com/", "_blank");
+            speak("Opening YouTube");
+            setResponse(true);
+            setPrompt("Opening YouTube...");
+            setTimeout(() => {
+                setSpeaking(false);
+            }, 5000);
+        } else if (command.includes("open") && command.includes("facebook")) {
+            window.open("https://www.facebook.com/", "_blank");
+            speak("Opening Facebook");
+            setResponse(true);
+            setPrompt("Opening Facebook...");
+            setTimeout(() => {
+                setSpeaking(false);
+            }, 5000);
+        } else if (command.includes("open") && command.includes("google")) {
+            window.open("https://www.google.com/", "_blank");
+            speak("Opening Google");
+            setResponse(true);
+            setPrompt("Opening Google...");
+            setTimeout(() => {
+                setSpeaking(false);
+            }, 5000);
+        } else if (command.includes("open") && command.includes("instagram")) {
+            window.open("https://www.instagram.com/", "_blank");
+            speak("Opening Instagram");
+            setResponse(true);
+            setPrompt("Opening Instagram...");
+            setTimeout(() => {
+                setSpeaking(false);
+            }, 5000);
+        } else if (command.includes("open") && command.includes("github")) {
+            window.open("https://github.com/", "_blank");
+            speak("Opening GitHub");
+            setResponse(true);
+            setPrompt("Opening GitHub...");
+            setTimeout(() => {
+                setSpeaking(false);
+            }, 5000);
+        } else if (command.includes("open") && command.includes("linkedin")) {
+            window.open("https://www.linkedin.com/", "_blank");
+            speak("Opening LinkedIn");
+            setResponse(true);
+            setPrompt("Opening LinkedIn...");
+            setTimeout(() => {
+                setSpeaking(false);
+            }, 5000);
+        } else if (command.includes("open") && command.includes("canva")) {
+            window.open("https://www.canva.com/", "_blank");
+            speak("Opening Canva");
+            setResponse(true);
+            setPrompt("Opening Canva...");
+            setTimeout(() => {
+                setSpeaking(false);
+            }, 5000);
+        } else if (command.includes("open") && command.includes("vercel")) {
+            window.open("https://vercel.com/", "_blank");
+            speak("Opening Vercel");
+            setResponse(true);
+            setPrompt("Opening Vercel...");
+            setTimeout(() => {
+                setSpeaking(false);
+            }, 5000);
+        } else if (command.includes("open") && command.includes("netlify")) {
+            window.open("https://www.netlify.com/", "_blank");
+            speak("Opening Netlify");
+            setResponse(true);
+            setPrompt("Opening Netlify...");
+            setTimeout(() => {
+                setSpeaking(false);
+            }, 5000);
+        } else if (command.includes("open") && command.includes("gmail")) {
+            window.open("https://mail.google.com/", "_blank");
+            speak("Opening Gmail");
+            setResponse(true);
+            setPrompt("Opening Gmail...");
+            setTimeout(() => {
+                setSpeaking(false);
+            }, 5000);
+        } else {
+            aiResponse(command);
+        }
+    }
+
     let value = {
         recognition,
         speaking,
